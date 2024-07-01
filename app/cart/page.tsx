@@ -23,12 +23,12 @@ function page() {
         </h1>
       ) : (
         <div className=" py-10 flex flex-col gap-10 items-center">
-          <div className="space-y-5  border py-5 px-5 w-3/4">
+          <div className="space-y-5  border py-5 px-5 w-[95%] md:w-3/4">
             {cart.map((product: any) => (
               <CartItem key={product.id} product={product} />
             ))}
           </div>
-          <div className="border px-6 py-5 space-y-5 h-fit w-1/2">
+          <div className="border px-6 py-5 space-y-5 h-fit md:w-1/2 w-3/4">
             <h1 className="text-2xl text-center">Order summary</h1>
             <div className="space-y-6">
               <div className="border-b flex justify-between">

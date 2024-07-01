@@ -13,8 +13,8 @@ export default async function Home() {
 
   return (
     <div className="mt-10">
-      <main className="home-main flex items-center justify-center flex-col gap-10 text-white">
-        <h1 className="text-4xl">Upgrade Your Tech with Our Latest Laptops</h1>
+      <main className="home-main flex items-center justify-center flex-col gap-10 text-white px-10 ">
+        <h1 className="text-4xl text-center">Upgrade Your Tech with Our Latest Laptops</h1>
         <p className="text-lg max-w-md text-center">
           Experience cutting-edge performance and sleek design with our newest
           collection of laptops

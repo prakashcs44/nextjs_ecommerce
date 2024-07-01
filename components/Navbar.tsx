@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Search from "./Search";
 import { useCart } from "@/contexts/cartContext";
+import SideBar from "./SideBar";
+
 
 const navLinks = [
   {
@@ -29,11 +31,11 @@ const Navbar = () => {
   const { cart } = useCart();
 
   return (
-    <nav className=" bg-white flex items-center  py-2 px-20 border justify-between sticky top-0 left-0 right-0 z-50">
+    <nav className=" bg-white xl:flex items-center  py-2 px-20 border justify-between sticky top-0 left-0 right-0 z-50 hidden ">
       <div className="flex items-center gap-14">
         <div className="font-bold text-xl">Logo</div>
 
-        <div className="flex gap-8">
+        <div className="gap-8 flex">
           {navLinks.map((item) => (
             <Link
               key={item.to}
@@ -48,7 +50,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-12">
+      <div className="flex items-center lg:gap-12 gap-10 ">
         <Search />
 
         <Link
@@ -63,7 +65,7 @@ const Navbar = () => {
           )}
         </Link>
 
-        <div>
+        <div >
           <Link
             href="/signup"
             className="bg-black px-4 py-3 text-white font-medium"
@@ -71,7 +73,9 @@ const Navbar = () => {
             Sign Up
           </Link>
         </div>
+      
       </div>
+      <SideBar/>
     </nav>
   );
 };

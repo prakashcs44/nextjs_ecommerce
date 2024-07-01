@@ -12,10 +12,10 @@ function CartItem(props:any) {
 
 
   return (
-    <div className='flex items-center justify-between px-10 border py-3 gap-3'>
+    <div className='flex items-start  md:items-center justify-between px-10 border py-3 gap-3'>
        
-       <div className='flex gap-5'>
-        <img src={product?.image} alt = {product?.title} className=' w-44'/>
+       <div className='flex flex-col md:flex-row gap-5  '>
+        <img src={product?.image} alt = {product?.title} className=' md:w-44 w-20'/>
          
          <div>
           <h1 className='font-medium text-xl'>{product?.title}</h1>
