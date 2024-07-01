@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Search from "./Search";
+import { useCart } from "@/contexts/cartContext";
 
 const navLinks = [
   {
@@ -25,6 +26,7 @@ const navLinks = [
 
 const Navbar = () => {
   const pathname = usePathname();
+  const { cart } = useCart();
 
   return (
     <nav className=" bg-white flex items-center  py-2 px-20 border justify-between sticky top-0 left-0 right-0 z-50">
@@ -49,10 +51,17 @@ const Navbar = () => {
       <div className="flex items-center gap-12">
         <Search />
 
-        <Link href="/cart" className="py-2 px-5 border hover:bg-slate-50 relative">
+        <Link
+          href="/cart"
+          className="py-2 px-5 border hover:bg-slate-50 relative"
+        >
           Cart
-          <div className="absolute size-6 bg-red-500 rounded-full top-0 left-full -translate-y-1/2 -translate-x-1/2 text-white flex items-center justify-center">10</div>
-          </Link>
+          {cart.length > 0 && (
+            <div className="absolute size-6 bg-red-500 rounded-full top-0 left-full -translate-y-1/2 -translate-x-1/2 text-white flex items-center justify-center">
+              {cart.length}
+            </div>
+          )}
+        </Link>
 
         <div>
           <Link
