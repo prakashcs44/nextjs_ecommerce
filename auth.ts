@@ -1,7 +1,6 @@
 import NextAuth, { CredentialsSignin } from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import UserModel from "./models/user.model"
-import { connectToDb } from "./utils/db"
 import bcrypt from "bcryptjs"
 
 
@@ -10,7 +9,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         CredentialsProvider({
             authorize: async ({ email, password }) => {
                 if (typeof email !== "string"|| typeof password !=="string") throw new CredentialsSignin("Invalid email or password");
-                await connectToDb();
+               
                 const user = await UserModel.findOne({email}).select("+password");
 
                 if(!user) throw new CredentialsSignin("User not found");
@@ -33,7 +32,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     callbacks: {
         async signIn({ user, account, credentials }) {
             
-            await connectToDb();
+           
             if(account?.provider==="credentials"){
                 const currUser = await UserModel.findOne({ email: credentials?.email });
                 if(!currUser){

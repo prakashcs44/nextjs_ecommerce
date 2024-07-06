@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar"
 import CardContextProvider from "@/contexts/cartContext";
 import SideBar from "@/components/SideBar";
 import { auth } from "@/auth";
+import { connectToDb } from "@/utils/db";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
+   await connectToDb();
   const session = await auth();
 
   return (
