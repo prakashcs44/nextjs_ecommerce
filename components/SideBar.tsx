@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Search from "./Search";
 import { useCart } from "@/contexts/cartContext";
+import { logout } from "@/actions";
 
 const navLinks = [
   {
@@ -24,10 +25,19 @@ const navLinks = [
   },
 ];
 
-function SideBar() {
+interface SideBarProps{
+  session:any
+}
+
+const SideBar:React.FC<SideBarProps> = ({session})=>{
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const { cart } = useCart();
+
+
+  const handleLogout = async ()=>{
+    await logout();
+ }
 
   return (
     <>
@@ -84,12 +94,22 @@ function SideBar() {
               {item.text}
             </Link>
           ))}
-          <Link
-            href="/signup"
-            className="bg-black px-4 py-3 text-white font-medium text-center"
-          >
-            Sign Up
-          </Link>
+         {session?.user ? (
+          <button onClick={handleLogout} className="bg-black px-4 py-3 text-white font-medium">
+            Logout
+          </button>
+        ) : (
+          pathname !== "/signup" && (
+           
+              <Link
+                href="/signup"
+                className="bg-black px-4 py-3 text-white font-medium text-center"
+              >
+                Sign Up
+              </Link>
+          
+          )
+        )}
         </div>
       </div>
     </>

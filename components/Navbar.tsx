@@ -1,11 +1,9 @@
 "use client";
-
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Search from "./Search";
 import { useCart } from "@/contexts/cartContext";
-import SideBar from "./SideBar";
-
+import { logout } from "@/actions";
 
 const navLinks = [
   {
@@ -26,12 +24,20 @@ const navLinks = [
   },
 ];
 
-const Navbar = () => {
+interface NavbarProps {
+  session: any;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ session }) => {
   const pathname = usePathname();
   const { cart } = useCart();
 
+  const handleLogout = async ()=>{
+     await logout();
+  }
+
   return (
-    <nav className=" bg-white xl:flex items-center  py-2 px-20 border justify-between sticky top-0 left-0 right-0 z-50 hidden ">
+    <nav className="xl:flex items-center  py-2 px-20 border justify-between sticky top-0 left-0 right-0 z-50 hidden bg-white">
       <div className="flex items-center gap-14">
         <div className="font-bold text-xl">Logo</div>
 
@@ -65,17 +71,24 @@ const Navbar = () => {
           )}
         </Link>
 
-        <div >
-          <Link
-            href="/signup"
-            className="bg-black px-4 py-3 text-white font-medium"
-          >
-            Sign Up
-          </Link>
-        </div>
-      
+        {session?.user ? (
+          <button onClick={handleLogout} className="bg-black px-4 py-3 text-white font-medium">
+            Logout
+          </button>
+        ) : (
+          pathname !== "/signup" && (
+            <div>
+              <Link
+                href="/signup"
+                className="bg-black px-4 py-3 text-white font-medium"
+              >
+                Sign Up
+              </Link>
+            </div>
+          )
+        )}
       </div>
-      <SideBar/>
+      
     </nav>
   );
 };

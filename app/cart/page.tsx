@@ -1,9 +1,13 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useMemo} from "react";
 import CartItem from "@/components/CartItem";
 import { useCart } from "@/contexts/cartContext";
 
+
 const SHIPPING_CHARGE = 10;
+
+
+
 
 function page() {
   const { cart } = useCart();
