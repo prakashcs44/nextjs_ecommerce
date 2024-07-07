@@ -32,6 +32,7 @@ function AddToCart(props: any) {
 
   return (
     <Button
+     className = {props.className}
       onClick={handler}
     >
       {itemAdded ? "Remove From Cart" : "Add To Cart"}

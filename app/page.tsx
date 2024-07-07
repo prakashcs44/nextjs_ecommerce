@@ -4,7 +4,7 @@ import ProductCard from "@/components/ProductCard";
 //https://fakestoreapi.com
 
 const getProducts = async () => {
-  const res = await fetch("https://fakestoreapi.com/products/category/electronics?limit=5");
+  const res = await fetch("https://fakestoreapi.com/products/?limit=5");
   return await res.json();
 };
 
