@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import Search from "./Search";
 import { useCart } from "@/contexts/cartContext";
 import { logout } from "@/actions";
+import Button from "./Button";
 
 const navLinks = [
   {
@@ -72,9 +73,9 @@ const Navbar: React.FC<NavbarProps> = ({ session }) => {
         </Link>
 
         {session?.user ? (
-          <button onClick={handleLogout} className="bg-black px-4 py-3 text-white font-medium">
+          <Button onClick={handleLogout} className="py-3 text-white font-medium">
             Logout
-          </button>
+          </Button>
         ) : (
           pathname !== "/signup" && (
             <div>

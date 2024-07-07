@@ -2,6 +2,7 @@
 import React, { useMemo} from "react";
 import CartItem from "@/components/CartItem";
 import { useCart } from "@/contexts/cartContext";
+import Button from "@/components/Button";
 
 
 const SHIPPING_CHARGE = 10;
@@ -48,9 +49,9 @@ function page() {
                 <p>${totalPrice + SHIPPING_CHARGE}</p>
               </div>
             </div>
-            <button className=" px-3 py-2 bg-black text-white w-full hover:bg-slate-800">
+            <Button className="w-full ">
               Checkout
-            </button>
+            </Button>
           </div>
         </div>
       )}

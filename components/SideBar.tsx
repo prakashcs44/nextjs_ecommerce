@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import Search from "./Search";
 import { useCart } from "@/contexts/cartContext";
 import { logout } from "@/actions";
+import Button from "./Button";
 
 const navLinks = [
   {
@@ -42,12 +43,12 @@ const SideBar:React.FC<SideBarProps> = ({session})=>{
   return (
     <>
       <div className="xl:hidden flex items-center justify-between px-4 py-4 border bg-white text-black ">
-        <button
-          className="py-2 px-5 border hover:bg-slate-50"
+        <Button
+          className="px-5 border hover:bg-slate-50"
           onClick={() => setOpen(true)}
         >
           Menu
-        </button>
+        </Button>
         <Link
           href="/cart"
           className="py-2 px-5 border hover:bg-slate-50 relative"
@@ -72,12 +73,12 @@ const SideBar:React.FC<SideBarProps> = ({session})=>{
       >
         <div className="flex justify-between items-center">
           <h1 className="flex font-bold text-xl">LOGO</h1>
-          <button
+          <Button
             onClick={() => setOpen(false)}
-            className="py-2 px-5 border hover:bg-slate-50"
+            className="px-5 border hover:bg-slate-50"
           >
             Close
-          </button>
+          </Button>
         </div>
 
         <Search />
@@ -95,9 +96,9 @@ const SideBar:React.FC<SideBarProps> = ({session})=>{
             </Link>
           ))}
          {session?.user ? (
-          <button onClick={handleLogout} className="bg-black px-4 py-3 text-white font-medium">
+          <Button onClick={handleLogout} className="font-medium">
             Logout
-          </button>
+          </Button>
         ) : (
           pathname !== "/signup" && (
            

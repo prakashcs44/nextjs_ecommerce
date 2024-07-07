@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import SocialLogin from '@/components/SocialLogin'
+import Button from '@/components/Button';
 
 
 
@@ -41,7 +42,7 @@ function page() {
         <input type='password' id = "password" name = "password" className='border-2 outline-none px-2 py-2 focus:border-slate-400'/>
         </div>
 
-        <button type = "submit" className=' px-[30%] py-2 bg-black text-white'>Sign up</button>
+        <Button type = "submit" className=' px-[30%]'>Sign up</Button>
 
        
       </form>

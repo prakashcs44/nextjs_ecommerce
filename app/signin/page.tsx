@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import SocialLogin from "@/components/SocialLogin";
 import { credentialsLogin } from "@/actions";
+import Button from "@/components/Button";
 
 function page() {
 
@@ -49,9 +50,9 @@ function page() {
             />
           </div>
 
-          <button type = "submit" className=" px-[30%] py-2 bg-black text-white">
+          <Button type = "submit" className=" px-[30%] py-2">
             Sign in
-          </button>
+          </Button>
         </form>
       
         

@@ -2,6 +2,7 @@
 import { useCart } from '@/contexts/cartContext';
 import Image from 'next/image';
 import React from 'react'
+import Button from './Button';
 
 function CartItem(props:any) {
   
@@ -26,7 +27,7 @@ function CartItem(props:any) {
         
        </div>
 
-       <button className=' py-2 px-4 border bg-slate-50 hover:bg-slate-100' onClick={()=>removeItemFromCart(product?.id)}>X</button>
+       <Button className='text-black border bg-slate-50 hover:bg-slate-100' onClick={()=>removeItemFromCart(product?.id)}>X</Button>
       
     </div>
   )

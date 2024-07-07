@@ -1,6 +1,7 @@
 "use client";
 import { useCart } from "@/contexts/cartContext";
 import React, { useEffect, useState } from "react";
+import Button from "./Button";
 
 
 function AddToCart(props: any) {
@@ -30,12 +31,11 @@ function AddToCart(props: any) {
   };
 
   return (
-    <button
-      className="bg-black py-2 px-4 text-white hover:bg-slate-800"
+    <Button
       onClick={handler}
     >
       {itemAdded ? "Remove From Cart" : "Add To Cart"}
-    </button>
+    </Button>
   );
 }
 
