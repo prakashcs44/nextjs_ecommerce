@@ -14,10 +14,9 @@ export default async function Home() {
   return (
     <div className="mt-10">
       <main className="home-main flex items-center justify-center flex-col gap-10 text-white px-10 ">
-        <h1 className="text-4xl text-center">Upgrade Your Tech with Our Latest Laptops</h1>
+        <h1 className="text-4xl text-center">Discover Our Wide Range of Products</h1>
         <p className="text-lg max-w-md text-center">
-          Experience cutting-edge performance and sleek design with our newest
-          collection of laptops
+          Find everything you need from electronics to fashion, all at unbeatable prices.
         </p>
         <Link
           href="/shop"
@@ -28,13 +27,11 @@ export default async function Home() {
       </main>
       
       <div className="mt-20 space-y-4">
-        <h1 className="text-4xl font-semibold text-center">Products</h1>
+        <h1 className="text-4xl font-semibold text-center">Featured Products</h1>
         <div className="grid md:grid-cols-3 grid-cols-1 gap-20 py-10 px-10">
           {
             products.map((product:any)=><ProductCard key={product.id} product={product}/>)
           }
-            
-            
         </div>
       </div>
     </div>
