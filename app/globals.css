@@ -14,3 +14,9 @@
     background-size: cover;
     background-position: left;
 }
+
+@layer components{
+    .skeleton{
+        @apply bg-slate-200 animate-pulse
+    }
+}

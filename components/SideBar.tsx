@@ -44,7 +44,7 @@ const SideBar:React.FC<SideBarProps> = ({session})=>{
     <>
       <div className="xl:hidden flex items-center justify-between px-4 py-4 border bg-white text-black ">
         <Button
-          className="px-5 border hover:bg-slate-50"
+          className="px-5 bg-white text-black border hover:bg-slate-50"
           onClick={() => setOpen(true)}
         >
           Menu
@@ -63,11 +63,11 @@ const SideBar:React.FC<SideBarProps> = ({session})=>{
       </div>
 
       {open && (
-        <div className="fixed top-0 left-0 bottom-0 right-0  bg-black bg-opacity-60" onClick={()=>setOpen(false)} />
+        <div className="fixed top-0 left-0 bottom-0 right-0  bg-black bg-opacity-60 z-50" onClick={()=>setOpen(false)} />
       )}
 
       <div
-        className={`fixed top-0 left-0 bottom-0 w-fit border bg-white text-black transition-transform duration-300 px-4 space-y-4 py-4 ${
+        className={`fixed top-0 left-0 bottom-0 w-fit border bg-white text-black transition-transform duration-300 px-4 space-y-4 py-4 z-50 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
       >
@@ -75,7 +75,7 @@ const SideBar:React.FC<SideBarProps> = ({session})=>{
           <h1 className="flex font-bold text-xl">LOGO</h1>
           <Button
             onClick={() => setOpen(false)}
-            className="px-5 border hover:bg-slate-50"
+            className="px-5 bg-white text-black border hover:bg-slate-50"
           >
             Close
           </Button>

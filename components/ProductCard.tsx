@@ -8,7 +8,7 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div>
+  
       <Link
         href={`/product/${product?.id}`}
         className="border hover:shadow-md transition-shadow"
@@ -25,7 +25,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <p>price: ${product?.price}</p>
         </div>
       </Link>
-    </div>
+   
   );
 };
 
