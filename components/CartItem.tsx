@@ -17,7 +17,7 @@ function CartItem(props:any) {
     <div className='flex items-start  md:items-center justify-between px-10 border py-3 gap-3'>
        
        <div className='flex flex-col md:flex-row gap-5  '>
-        <Image src={product?.image} width={700} height={700} alt = {product?.title} className=' md:w-44 w-20' />
+        <Image src={product?.images[0]} width={700} height={700} alt = {product?.title} className=' md:w-44 w-20' />
          
          <div>
           <h1 className='font-medium text-xl'>{product?.title}</h1>

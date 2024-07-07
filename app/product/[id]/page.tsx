@@ -2,25 +2,22 @@
 import AddToCart from '@/components/AddToCart';
 import React from 'react'
 import Image from 'next/image';
+import { getProductById } from '@/utils/products';
+import Carousel from '@/components/Carousel';
 
-const fetchProduct = async (id:any)=>{
-   const res = await fetch(`https://fakestoreapi.com/products/${id}`)
-   return await res.json();
-}
 
 
 async function page(props:any) {
 
   const {id} = props.params; 
  
-  const product = await fetchProduct(id);
+  const product = await getProductById(id);
   
 
 
   return (
     <div className=' flex flex-col xl:flex-row gap-10 md:px-20 px-10 py-10'>
-
-      <Image src={product.image} alt = {product.title} className=' xl:w-1/3 w-full' width = {800} height={800}/>
+       <Carousel images={product?.images}/>
       <div className='space-y-10'>
       <h1 className='font-bold text-3xl'>{product.title}</h1>
       <p>{product.description}</p>

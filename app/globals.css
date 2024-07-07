@@ -15,6 +15,15 @@
     background-position: left;
 }
 
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .hide-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
 @layer components{
     .skeleton{
         @apply bg-slate-200 animate-pulse

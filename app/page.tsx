@@ -1,12 +1,7 @@
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import { getProducts } from "@/utils/products";
 
-//https://fakestoreapi.com
-
-const getProducts = async () => {
-  const res = await fetch("https://fakestoreapi.com/products?limit=6");
-  return await res.json();
-};
 
 export default async function Home() {
   const products = await getProducts();

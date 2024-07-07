@@ -1,11 +1,8 @@
 import AddToCart from "@/components/AddToCart";
 import ProductCard from "@/components/ProductCard";
 import React from "react";
+import { getProducts } from "@/utils/products";
 
-const getProducts = async () => {
-  const res = await fetch("https://fakestoreapi.com/products?limit=6");
-  return await res.json();
-};
 
 const page = async () => {
   const products = await getProducts();

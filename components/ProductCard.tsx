@@ -14,7 +14,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="border hover:shadow-md transition-shadow"
       >
         <Image
-          src={product?.image}
+          src={product?.images[0]}
           alt={product?.title}
           className="w-full h-60 object-cover"
           width={700}
