@@ -8,34 +8,28 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
-  const [currId, setCurrId] = useState(0);
+  const [currIndex, setcurrIndex] = useState(0);
 
-  useEffect(() => {
-    document.getElementById(`${currId}`)?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "start",
-    });
-  }, [currId]);
+  
 
   const handleNext = () => {
-    if (currId < images.length - 1) {
-      setCurrId(curr => curr + 1);
+    if (currIndex < images.length - 1) {
+      setcurrIndex(curr => curr + 1);
     }
   };
 
   const handlePrev = () => {
-    if (currId > 0) {
-      setCurrId(curr => curr - 1);
+    if (currIndex > 0) {
+      setcurrIndex(curr => curr - 1);
     }
   };
 
   return (
-    <div className="space-y-4 w-fit mx-auto mt-10">
-      <div className="w-72 h-96 bg-slate-300 relative overflow-x-scroll bg-scroll overflow-y-hidden hide-scrollbar pointer-events-none">
-        <div className="absolute flex">
-          {images?.map((image, index) => (
-            <div className="w-72 h-96" key={index} id={`${index}`}>
+    <div className="space-y-4 w-full aspect-[0.8]">
+      <div className="w-full h-full bg-slate-300 relative overflow-hidden">
+        <div className="absolute flex w-full h-full">
+          {images?.map((image) => (
+            <div className={`w-full h-full flex-grow-0 flex-shrink-0 -translate-x-[${100*currIndex}%] transition-transform duration-200`} key={image} >
               <Image
                 src={image}
                 alt="product image"
@@ -48,8 +42,8 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
         </div>
       </div>
       <div className="flex justify-center gap-8">
-        <Button onClick={handlePrev} disabled={currId === 0} className = {`bg-slate-100 text-black border hover:bg-slate-200 ${currId === 0&&"opacity-40"}`}>Prev</Button>
-        <Button onClick={handleNext} disabled={currId === images.length - 1} className = {`bg-slate-100 text-black border hover:bg-slate-200 ${currId === images.length - 1&&"opacity-40"}`}>Next</Button>
+        <Button onClick={handlePrev} disabled={currIndex === 0} className = {`bg-slate-100 text-black border hover:bg-slate-200 ${currIndex === 0&&"opacity-40"}`}>Prev</Button>
+        <Button onClick={handleNext} disabled={currIndex === images.length - 1} className = {`bg-slate-100 text-black border hover:bg-slate-200 ${currIndex === images.length - 1&&"opacity-40"}`}>Next</Button>
       </div>
     </div>
   );
